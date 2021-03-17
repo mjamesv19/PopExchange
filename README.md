@@ -1,5 +1,8 @@
 # README
 
+<td><%= link_to 'Edit', edit_pop_path(pop) %></td>
+        <td><%= link_to 'Destroy', pop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

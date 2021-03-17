@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pop.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pop.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @pop.price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @pop.category %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @pop.user.email %>
+</p>
+<p >
+  <%= image_tag @pop.picture, class:"popDisplayPic"%>
+</p>
+
+<%= link_to "Back", pops_path %>  |
+<% if current_user.id == @pop.user_id %>
+  <%= link_to "Edit", edit_pop_path(@pop) %> |
+  <%= link_to "Delete", delete_pop_path(@pop), method: :delete, data: { confirm: "Are you sure?" } %>
+<% else %> 
+  <%="Buy"%>
+<% end %>

@@ -1,17 +1,22 @@
 <div class="jumbotron">
     <div class="row">
+        <div class="col-md-3">
+            <%=image_tag "AllMight(buff)", class: "index-image" %>
+        </div>
+
         <div class="col-md-6">
-            <h1 class="display-4">Pop Exchange</h1>
+            <h1 class="display-3">Pop Exchange</h1>
             <p class = "lead"> This is sample text how are you going there? this is just some test to fill in some space with soem esplling erroors put in it. itts onlee porpose is to fill space so i can see who the page looks. :P </p>
-            <hr class="my-4">
+            <%# <hr class="my-4"> %>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">  Browse Listing  </a>
+                <%=link_to "  Browse Listing  ", pops_path, class:"btn btn-primary btn-lg"%>
             </p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">  Create Listings </a>
+                <%=link_to "  Create Listings ", new_pop_path, class:"btn btn-secondary btn-lg"%>
             </p>
         </div>
-        <div class="col-md-6">
+
+        <div class="col-md-3">
             <%=image_tag "AllMight(buff)", class: "index-image" %>
         </div>
     </div>
