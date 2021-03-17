@@ -78,4 +78,3 @@ class PopsController < ApplicationController
       end
     end
 end
-
