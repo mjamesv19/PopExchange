@@ -22,8 +22,8 @@
         <td><%= pop.price %></td>
         <td><%= pop.category %></td>
         <td><%= pop.user.email %></td>
-        <td><%= link_to 'Show', pop %></td>
-        
+        <td><%= link_to 'Show', pop, class:"btn btn-primary btn-lg" %></td>
+
         
       </tr>
     <% end %>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Pop', new_pop_path %>
+<%= link_to 'Got one to Sell?', new_pop_path, class:"btn btn-primary btn-lg"%>

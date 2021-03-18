@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-8">
+        <h1>Your Order</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <ul>
+                <dd> <%=@pop.name %> </dd>
+                <dd> <%=@pop.description %> </dd>
+                <dd> <%= "sold by #{@pop.user.email}"%> </dd>
+                <dd> <%=number_to_currency @pop.price %> </dd>
+            </ul>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" id="pay-now">Checkout</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+    const stripe = Stripe('<%= ENV["STRIPE_PK_TEST"] %>')
+
+    function redirectToStripe() {
+        stripe.redirectToCheckout({ sessionId: '<%= @session.id %>'})
+    }
+
+    document.querySelector("#pay-now").addEventListener("click", redirectToStripe)
+</script>
+
+

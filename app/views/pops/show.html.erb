@@ -1,37 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <p>
+        <dl>
+          <dd>
+            <strong>Name:</strong>
+            <%= @pop.name %>
+          </dd>
+          <dd>
+            <strong>Description:</strong>
+            <%= @pop.description %>
+          </dd>
+          <dd>
+            <strong>Price:</strong>
+            <%= @pop.price %>
+          </dd>
+          <dd>
+            <strong>Category:</strong>
+            <%= @pop.category %>
+          </dd>
+          <dd>
+          <%= link_to "Back",  pops_path, class:"btn btn-primary btn-lg" %>  |
+          <% if current_user.id == @pop.user_id%>
+            <%= link_to "Edit", edit_pop_path(@pop), class:"btn btn-primary btn-lg" %> |
+            <%= link_to "Delete", delete_pop_path(@pop), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-primary btn-lg" %>
+          <% else %> 
+            <%=link_to "Buy", new_order_path(pop_id: @pop.id), class:"btn btn-primary btn-lg" %>
+          <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pop.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @pop.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @pop.price %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @pop.category %>
-</p>
-
-<p>
-  <strong>Seller:</strong>
-  <%= @pop.user.email %>
-</p>
-<p >
-  <%= image_tag @pop.picture, class:"popDisplayPic"%>
-</p>
-
-<%= link_to "Back", pops_path %>  |
-<% if current_user.id == @pop.user_id %>
-  <%= link_to "Edit", edit_pop_path(@pop) %> |
-  <%= link_to "Delete", delete_pop_path(@pop), method: :delete, data: { confirm: "Are you sure?" } %>
-<% else %> 
-  <%="Buy"%>
-<% end %>
+          </dd>
+        </dl>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag @pop.picture, class:"popDisplayPic" %>
+    </div>
+  </div>
+</div>
