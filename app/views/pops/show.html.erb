@@ -34,7 +34,12 @@
       </p>
     </div>
     <div class="col-md-4">
+    <% if  @pop.picture.attached? == true%>
       <%= image_tag @pop.picture, class:"popDisplayPic" %>
+    <% else %>
+    Please upload an image so poeple can see that you have the Pop!
+    <% end %>
+    
     </div>
   </div>
 </div>

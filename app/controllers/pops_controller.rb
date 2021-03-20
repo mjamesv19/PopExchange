@@ -25,6 +25,7 @@ class PopsController < ApplicationController
   def create
     @pop = Pop.new(pop_params)
     @pop.user_id = current_user.id
+    @pop.picture.attach(pop_params[:cover])
     respond_to do |format|
       if @pop.save
         format.html { redirect_to @pop, notice: "Pop was successfully created." }
@@ -34,6 +35,7 @@ class PopsController < ApplicationController
         format.json { render json: @pop.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /pops/1 or /pops/1.json
